@@ -1,0 +1,29 @@
+a. update the employee with employee_no 1002 job to 4, with effective 2020-01-01.
+
+Answer : 
+UPDATE employee_job_table
+SET job_id = 4, effective_date = '2020-01-01'
+WHERE employee_no = 1002;
+
+b. list out the employee name, employee no, effective date, job title.
+
+Answer :
+SELECT employee_name, employee_no, effective_date, job_name
+FROM employee_profile_table
+JOIN employee_job_table USING (employee_id)
+JOIN job_profile_table USING (job_id);
+
+c. list out the employee name, employee no, latest job title
+
+Answer :
+SELECT employee_name, employee_no, job_name
+FROM employee_profile_table
+JOIN employee_job_table USING (employee_id)
+JOIN job_profile_table USING (job_id);
+
+
+d. delete all employee with employee_no 1000 job title, with effective date of 2020-01-01
+
+Answer :
+DELETE FROM employee_job_table
+WHERE employee_no = 1000 AND effective_date = '2020-01-01';
